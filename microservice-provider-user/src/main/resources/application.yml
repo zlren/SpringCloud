@@ -1,0 +1,20 @@
+server:
+    port: 7900
+spring:
+    application:
+        name: microservice-provider-user    # 项目名称尽量用小写
+    jpa:
+        generate-ddl: false
+        show-sql: true
+        hibernate:
+            ddl-auto: none
+    datasource:                             # 指定数据源
+        platform: h2                        # 指定数据源类型
+        schema: classpath:schema.sql        # 指定h2数据库的建表脚本
+        data: classpath:data.sql            # 指定h2数据库的初始数据
+logging:
+    level:
+        root: INFO
+        org.hibernate: INFO
+        org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+        org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
