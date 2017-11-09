@@ -1,0 +1,16 @@
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: eureka-server         # 指定该Eureka实例的主机名
+  client: # 一个eureka-server同时也是一个eureka-client ha下配成server的集群 每个server对于其他server就是client 因为现在不是集群，所以下面两个选项都是false
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${security.user.name}:${security.user.password}@localhost:${server.port}/eureka
+security:
+  basic:
+    enabled: true
+  user:
+    name: user
+    password: password123
